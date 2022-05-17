@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Prompt:wght@700&display=swap");
+
+.welcome {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+
+.wrapper {
+  margin: 0 auto;
+  vertical-align: middle;
+  text-align: center;
+  width: 1100px;
+  background: #1b1d31;
+  color: #fff;
+  padding: 90px 0;
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 45px;
+  text-align: center;
+  font-family: "Prompt", sans-serif;
+  margin-bottom: 10px;
+}
+
+.welcome p {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 16px;
+  opacity: 0.7;
+}

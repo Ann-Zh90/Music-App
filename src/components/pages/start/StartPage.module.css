@@ -1,0 +1,11 @@
+.logo {
+  position: absolute;
+  top: 90px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+}
+/* 
+position: absolute;
+    top: 90px;
+    width: 100%;
+    text-align: center; */

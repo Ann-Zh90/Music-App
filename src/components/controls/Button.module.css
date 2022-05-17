@@ -1,0 +1,31 @@
+.btn {
+  background: linear-gradient(90deg, #7e55b3 -0.37%, #a769c4 100.37%);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  border: none;
+  font-family: Arial;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  text-align: center;
+  padding: 20px;
+  font-style: normal;
+  text-transform: uppercase;
+  margin-top: 30px;
+}
+
+.btn:hover {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    linear-gradient(90deg, #7e55b3 -0.37%, #a769c4 100.37%);
+}
+
+.btn:disabled {
+  background: linear-gradient(90deg, #808080 -0.37%, #656565 100.37%);
+  cursor: not-allowed;
+}
+
+.btn a {
+  color: #ffffff;
+  text-decoration: none;
+  margin-right: 10px;
+}

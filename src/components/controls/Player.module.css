@@ -1,0 +1,47 @@
+.container {
+  display: flex;
+  margin-top: 30px;
+  padding: 20px;
+  background: #373b62;
+  border: 1px solid #373b62;
+  border-radius: 5px;
+  gap: 20px;
+  justify-content: space-between;
+}
+.playBtn {
+  width: 114px;
+  height: 114px;
+  background: linear-gradient(
+    148.42deg,
+    #ec1919 -0.53%,
+    #d1c234 28.02%,
+    #d134a5 60.47%,
+    #3734d1 90.32%,
+    #23b632 124.06%
+  );
+}
+.scrollBar {
+  position: relative;
+  flex: 1 1 auto;
+}
+
+.background {
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  pointer-events: none;
+  background: #494d77;
+}
+
+.scrollBar input {
+  width: 100%;
+  --thumb-width: 12px;
+  --thumb-height: 12px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}

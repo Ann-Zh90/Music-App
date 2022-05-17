@@ -1,0 +1,42 @@
+.wrapper {
+  margin-top: 90px;
+}
+
+.input {
+  width: 455px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px #373b62 solid;
+  padding: 0 138px 20px 138px;
+
+  font-family: Arial;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.input:hover,
+.input:focus {
+  border-bottom: 1px #fff solid;
+}
+
+.input:focus-visible {
+  outline: none;
+}
+
+.input::placeholder {
+  text-align: center;
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  text-transform: uppercase;
+  color: #ffffff;
+  opacity: 0.5;
+}
