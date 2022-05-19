@@ -1,0 +1,41 @@
+.infoSection {
+  width: 1000px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+h1 {
+  font-family: "Prompt", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #fff;
+}
+
+.infoSection img {
+  object-fit: cover;
+  object-position: 50% 20%;
+  border-radius: 10px 10px 0 0;
+}
+
+.description {
+  font-family: Arial;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  /* or 24px */
+
+  text-align: center;
+
+  color: #ffffff;
+
+  opacity: 0.7;
+}
+
+.player {
+  width: -webkit-fill-available;
+}

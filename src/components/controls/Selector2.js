@@ -1,9 +1,8 @@
-import React, { Fragment } from "react";
+import React from "react";
 import style from "./Selector.module.css";
 
-const Selector = (props) => {
+const Selector2 = (props) => {
   const onChangeHandler = (e) => {
-    console.log(e.currentTarget);
   };
   return (
     <div className={style.fragment}>
@@ -25,4 +24,4 @@ const Selector = (props) => {
   );
 };
 
-export default Selector;
+export default Selector2;

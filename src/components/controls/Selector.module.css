@@ -1,6 +1,6 @@
 .selector {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   gap: 20px;
   color: rgba(255, 255, 255, 0.7);
   border: 1px solid #373b62;
@@ -38,24 +38,28 @@
   background-size: 50% 50%;
 }
 
-.correct {
+.correct,
+.correct:hover {
   background: #3e6441;
   border: 1px solid #619a65;
   color: rgba(255, 255, 255, 1);
 }
 
-.correct > .icon {
+.correct > .icon,
+.correct:hover > .icon {
   border-color: #619a65;
   background-image: url("../../assets/Correct.svg");
 }
 
-.incorrect {
+.incorrect,
+.incorrect:hover {
   background: #853838;
   border: 1px solid #b55a5a;
   color: rgba(255, 255, 255, 1);
 }
 
-.incorrect > .icon {
+.incorrect > .icon,
+.incorrect:hover > .icon {
   border-color: #b55a5a;
   background-image: url("../../assets/Incorrect.svg");
 }

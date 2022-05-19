@@ -1,13 +1,42 @@
+import { useRef } from "react";
 import style from "./Player.module.css";
 
-const Player = () => {
+const Player = ({ content, rigthAnswer }) => {
+  let urlAudio = "";
+  let urlImage;
+  if (content) {
+    urlAudio = `https://levi9-song-quiz.herokuapp.com/api/${content.audio}`;
+    urlImage = `https://levi9-song-quiz.herokuapp.com/api/${content.image}`;
+  }
+
+  const audio = new Audio(urlAudio);
+  audio.preload = "metadata";
+  const end = audio.duration;
+
+  console.log(end);
+
+  const onClickHandler = () => {
+    if (audio.paused) {
+      audio.play();
+    } else {
+      audio.pause();
+    }
+  };
   return (
     <div className={style.container}>
-      <div className={style.playBtn}></div>
+      <div className={style.playBtn} onClick={onClickHandler}>
+        {rigthAnswer && (
+          <img src={urlImage} alt="artist" width="114px" height="114px" />
+        )}
+        <div className={style.circle}></div>
+      </div>
       <div className={style.scrollBar}>
         <div className={style.background}></div>
-        <input type="range" value="0" min="0.1" max="29.59" />
-        <audio>player</audio>
+        <input type="range" min="0.1" max="29.59" className={style.input} />
+        <div className={style.timeIndicator}>
+          <span>{"start"}</span>
+          <span>{"end"}</span>
+        </div>
       </div>
     </div>
   );

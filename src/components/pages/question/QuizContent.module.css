@@ -1,9 +1,11 @@
 .container {
   display: flex;
   justify-content: space-between;
+  height: 753px;
   padding-top: 60px;
   padding-right: 60px;
   padding-left: 60px;
+  background-color: rgba(27, 29, 49, 1);
 }
 
 .questionSection {
@@ -20,6 +22,10 @@
   color: #fff;
 }
 
+.questionSection h1::first-letter {
+  text-transform: uppercase;
+}
+
 .questionSection p {
   font-family: "Arial", sans-serif;
   font-size: 16px;
@@ -30,6 +36,22 @@
   color: rgba(255, 255, 255, 0.7);
   text-align: left;
 }
-.infoSection {
+
+.questions {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.defaultImg {
   width: 1000px;
+  position: relative;
+}
+
+.defaultImg img {
+  position: absolute;
+  right: -60px;
+  bottom: 0;
 }
