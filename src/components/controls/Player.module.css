@@ -1,119 +1,153 @@
-.container {
+.audioPlayer {
+  --primary: #f40082;
+  --secondary: #ffd200;
+
+  align-items: center;
   display: flex;
-  margin-top: 30px;
-  padding: 20px;
-  background: #373b62;
-  border: 1px solid #373b62;
-  border-radius: 5px;
-  gap: 20px;
-  justify-content: space-between;
+  width: 700px;
 }
-.playBtn {
-  width: 114px;
-  height: 114px;
-  background: linear-gradient(
-    148.42deg,
-    #ec1919 -0.53%,
-    #d1c234 28.02%,
-    #d134a5 60.47%,
-    #3734d1 90.32%,
-    #23b632 124.06%
-  );
+
+.forwardBackward {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  font-family: monospace;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.forwardBackward:hover {
+  color: var(--primary);
+}
+
+.playPause {
+  background: var(--primary);
+  border: none;
+  border-radius: 50%;
+  width: 75px;
+  height: 75px;
+  font-size: 32px;
+  color: var(--secondary);
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 5px;
 }
 
-.playBtn img {
-  object-fit: cover;
-  object-position: 50% 20%;
-  z-index: 0;
-}
-.scrollBar {
+.play {
   position: relative;
-  flex: 1 1 auto;
+  left: 5px;
 }
 
-.background {
-  position: absolute;
-  width: 100%;
-  height: 5px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.currentTime,
+.duration {
+  font-family: monospace;
+  font-size: 16px;
+}
+
+.currentTime {
+  margin-left: 25px;
+}
+
+.progressBar {
+  --bar-bg: #ffe3d4;
+  --seek-before-width: 0;
+  --seek-before-color: #ffc2a1;
+  --knobby: #3452a5;
+  --selectedKnobby: #26c9c3;
+
+  appearance: none;
+  background: var(--bar-bg);
   border-radius: 10px;
-  pointer-events: none;
-  background: #494d77;
+  position: relative;
+  width: 100%;
+  height: 11px;
+  outline: none;
 }
 
-.input {
+/* progress bar - safari */
+.progressBar::-webkit-slider-runnable-track {
+  background: var(--bar-bg);
+  border-radius: 10px;
+  position: relative;
+  width: 100%;
+  height: 11px;
+  outline: none;
+}
+
+/* progress bar - firefox */
+.progressBar::-moz-range-track {
+  background: var(--bar-bg);
+  border-radius: 10px;
+  position: relative;
+  width: 100%;
+  height: 11px;
+  outline: none;
+}
+
+.progressBar::-moz-focus-outer {
+  border: 0;
+}
+
+/* progress bar - chrome and safari */
+.progressBar::before {
+  content: "";
+  height: 11px;
+  width: var(--seek-before-width);
+  background-color: var(--seek-before-color);
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 3;
-  -webkit-appearance: none; /**/
-  background-color: transparent; /**/
-  height: 100%;
-  width: 100%; /**/
+  top: 0;
+  left: 0;
+  z-index: 2;
   cursor: pointer;
-  display: block;
 }
 
-/* input[type="range"]::-moz-range-thumb,
-input[type="range"]::-webkit-slider-thumb {
-  color: #fff;
-} */
+/* progress bar - firefox */
+.progressBar::-moz-range-progress {
+  background-color: var(--seek-before-color);
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  height: 11px;
+}
 
-input[type="range"]::-webkit-slider-thumb {
+/* knobby - chrome and safari */
+.progressBar::-webkit-slider-thumb {
   -webkit-appearance: none;
-  border: 1px solid #000000;
   height: 15px;
   width: 15px;
   border-radius: 50%;
-  background: #ffffff;
+  border: none;
+  background-color: var(--knobby);
   cursor: pointer;
-  /* margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
-  /*box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; Add cool effects to your sliders! */
-}
-
-input[type="range"]:focus {
-  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
-}
-input[type="range"]::-ms-track {
-  width: 100%;
-  cursor: pointer;
-  background: transparent;
-  border-color: transparent;
-  color: transparent;
-}
-
-.timeIndicator {
-  position: absolute;
-  top: 65%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  color: rgba(250, 250, 250, 0.7);
-}
-
-.circle {
   position: relative;
-  width: 47px;
-  height: 47px;
-  background-color: rgba(250, 250, 250, 0.7);
-  border-radius: 50%;
+  margin: -2px 0 0 0;
+  z-index: 3;
+  box-sizing: border-box;
 }
-.circle::after {
-  content: "";
-  position: absolute;
-  z-index: 100;
-  top: 50%;
-  left: 16%;
-  transform: translate(50%, -50%);
-  border: 10px solid transparent;
-  border-left: 13px solid #373b62;
+
+/* knobby while dragging - chrome and safari */
+.progressBar:active::-webkit-slider-thumb {
+  transform: scale(1.2);
+  background: var(--selectedKnobby);
+}
+
+/* knobby - firefox */
+.progressBar::-moz-range-thumb {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  border: transparent;
+  background-color: var(--knobby);
+  cursor: pointer;
+  position: relative;
+  z-index: 3;
+  box-sizing: border-box;
+}
+
+/* knobby while dragging - firefox */
+.progressBar:active::-moz-range-thumb {
+  transform: scale(1.2);
+  background: var(--selectedKnobby);
 }

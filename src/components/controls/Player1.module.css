@@ -1,0 +1,133 @@
+.container {
+  display: flex;
+  margin-top: 30px;
+  padding: 20px;
+  background: #373b62;
+  border: 1px solid #373b62;
+  border-radius: 5px;
+  gap: 20px;
+  justify-content: space-between;
+}
+.playBtn {
+  width: 114px;
+  height: 114px;
+  background: linear-gradient(
+    148.42deg,
+    #ec1919 -0.53%,
+    #d1c234 28.02%,
+    #d134a5 60.47%,
+    #3734d1 90.32%,
+    #23b632 124.06%
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.playBtn img {
+  object-fit: cover;
+  object-position: 50% 20%;
+  z-index: 0;
+}
+.scrollBar {
+  position: relative;
+  flex: 1 1 auto;
+}
+
+.background {
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  pointer-events: none;
+  background: #494d77;
+}
+.progressField {
+  position: absolute;
+  width: 0%;
+  height: 5px;
+  top: 50%;
+  transform: translate(0, -50%);
+  border-radius: 10px;
+  pointer-events: none;
+  background: linear-gradient(270deg, #7e55b3 0%, #a769c4 100.02%);
+}
+
+.input {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  -webkit-appearance: none; /**/
+  background-color: transparent; /**/
+  height: 100%;
+  width: 100%; /**/
+  cursor: pointer;
+  display: block;
+}
+
+/* input[type="range"]::-moz-range-thumb,
+input[type="range"]::-webkit-slider-thumb {
+  color: #fff;
+} */
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 1px solid #000000;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background: #ffffff;
+  cursor: pointer;
+  /* margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+  /*box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; Add cool effects to your sliders! */
+}
+
+input[type="range"]:focus {
+  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+input[type="range"]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+.timeIndicator {
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  color: rgba(250, 250, 250, 0.7);
+}
+
+.circle {
+  /* position: relative; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 47px;
+  height: 47px;
+  background-color: rgba(250, 250, 250, 0.7);
+  border-radius: 50%;
+  color: #373b62;
+}
+/* .circle::after {
+  content: "";
+  position: absolute;
+  z-index: 100;
+  top: 50%;
+  left: 16%;
+  transform: translate(50%, -50%);
+  border: 10px solid transparent;
+  border-left: 13px solid #373b62;
+} */

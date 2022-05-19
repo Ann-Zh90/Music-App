@@ -5,6 +5,7 @@ const initialState = {
   chosenSongInfo: null,
   questionNum: null,
   attemps: 0,
+  isSongPlaying: false,
 };
 
 const gamePart = createSlice({
@@ -22,6 +23,9 @@ const gamePart = createSlice({
     },
     setChosenSongInfo(state, action) {
       state.chosenSongInfo = action.payload;
+    },
+    toggleIsSongPlaying(state) {
+      state.isSongPlaying = !state.isSongPlaying;
     },
   },
 });

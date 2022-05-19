@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { userActions } from "../../../store/user-part";
 import Selector from "../../controls/Selector";
-import Player from "../../controls/Player";
+import Player1 from "../../controls/Player1";
 import SongInfo from "./SongInfo";
 import star from "../../../assets/star.svg";
 
@@ -77,7 +77,7 @@ const QuizContent = ({ content, isButtonDisabled }) => {
           <h1>{genre} song</h1>
           <p>Listen to the audio and guess what song is it from the list</p>
         </div>
-        <Player
+        <Player1
           className={style.player}
           content={questionData}
           rigthAnswer={rigthAnswer}
