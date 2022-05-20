@@ -4,10 +4,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import style from "./PlayBtn.module.css";
 import { useSelector } from "react-redux";
 
-const PlayBtn = (props) => {
-  const isPlaying = useSelector((state) => state.game.isPlaying);
+const PlayBtn = ({ isPlaying, onClick }) => {
   return (
-    <div className={style.circle}>
+    <div className={style.circle} onClick={onClick}>
       {isPlaying ? (
         <FontAwesomeIcon icon={faPause} />
       ) : (

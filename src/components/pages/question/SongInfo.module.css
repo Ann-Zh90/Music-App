@@ -39,3 +39,17 @@ h1 {
 .player {
   width: -webkit-fill-available;
 }
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.mainContent img {
+  border-radius: 10px 10px 0 0;
+  border: 1px solid #373b62;
+}
+
+.player {
+  border-radius: 0 0 5px 5px;
+}

@@ -73,7 +73,7 @@ const QuizContent = ({ content, isButtonDisabled }) => {
   return (
     <div className={style.container}>
       <div className={style.questionSection}>
-        <div>
+        <div className={style.title}>
           <h1>{genre} song</h1>
           <p>Listen to the audio and guess what song is it from the list</p>
         </div>
@@ -81,6 +81,7 @@ const QuizContent = ({ content, isButtonDisabled }) => {
           className={style.player}
           content={questionData}
           rigthAnswer={rigthAnswer}
+          isArtistPhotoShown={true}
         />
         <div className={style.questions}>{listOfOptions}</div>
       </div>

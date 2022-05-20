@@ -2,29 +2,20 @@ import { useRef, useState, useEffect, useMemo } from "react";
 import style from "./Player1.module.css";
 import { faPlay, faPause } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import PlayBtn from "./PlayBtn";
 import { useDispatch } from "react-redux";
 import { gameActions } from "../../store/game-part";
+import PlayBtn from "./PlayBtn";
 
-const Player1 = ({ content, rigthAnswer }) => {
-  console.log("render");
+const Player1 = ({ content, rigthAnswer, isArtistPhotoShown }) => {
   const [duration, setDuration] = useState("00:00");
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   //const [progress, setProgress] = useState(0);
 
-  const animationRef = useRef();
-
-  const dispatch = useDispatch();
-
   let urlAudio = "";
   let urlImage;
   let progress = (currentTime * 100) / duration;
-  let start = currentTime
-    ? `${Math.floor((duration - currentTime) / 60)}:${Math.round(
-        (duration - currentTime) % 60
-      )}`
-    : "0:00";
+  const inputRef = useRef();
 
   if (content) {
     urlAudio = `https://levi9-song-quiz.herokuapp.com/api/${content.audio}`;
@@ -43,10 +34,13 @@ const Player1 = ({ content, rigthAnswer }) => {
     }
   };
 
+  const onChangeInputValue = (e) => {
+    audio.currentTime = e.currentTarget.value;
+  };
+
   useEffect(() => {
     const getDuration = (e) => {
       setDuration(e.target.duration);
-      console.log("in useEffect getDuration");
     };
     audio.addEventListener("loadedmetadata", getDuration);
 
@@ -59,20 +53,16 @@ const Player1 = ({ content, rigthAnswer }) => {
   }, [audio]);
 
   useEffect(() => {
+    inputRef.current.value = 0;
     const timeupdate = (e) => {
       setCurrentTime(e.target.currentTime);
-      console.log(
-        "in useEffect timeupdate",
-        "e.target.currentTime",
-        e.target.currentTime
-      );
+      inputRef.current.value = e.target.currentTime;
     };
     audio.addEventListener("timeupdate", timeupdate);
     return () => {
       audio.removeEventListener("timeupdate", timeupdate);
     };
   }, [audio]);
-
   const end = `${Math.floor(duration / 60)}:${Math.round(duration % 60)}`;
   const calculateTime = (secs) => {
     const minutes = Math.floor(secs / 60);
@@ -83,13 +73,21 @@ const Player1 = ({ content, rigthAnswer }) => {
   };
 
   return (
-    <div className={style.container}>
-      <div className={style.playBtn} onClick={onClickHandler}>
+    <div
+      className={
+        isArtistPhotoShown ? style.container : style.containerWithoutPhoto
+      }
+    >
+      <div
+        className={
+          isArtistPhotoShown ? style.playBtn : style.playBtnWithoutPhoto
+        }
+      >
         {rigthAnswer && (
           <img src={urlImage} alt="artist" width="114px" height="114px" />
         )}
-        {/* <PlayBtn /> */}
-        <div className={style.circle}>
+        {/* <PlayBtn onClick={onClickHandler} isPlaying={isPlaying} /> */}
+        <div className={style.circle} onClick={onClickHandler}>
           {isPlaying ? (
             <FontAwesomeIcon icon={faPause} />
           ) : (
@@ -103,7 +101,15 @@ const Player1 = ({ content, rigthAnswer }) => {
           className={style.progressField}
           style={{ width: `${progress}%` }}
         ></div>
-        <input type="range" min="0.1" max={duration} className={style.input} />
+        <input
+          type="range"
+          min="0.1"
+          step="0.1"
+          max={duration}
+          className={style.input}
+          ref={inputRef}
+          onChange={onChangeInputValue}
+        />
         <div className={style.timeIndicator}>
           <span>{calculateTime(currentTime)}</span>
           <span>{end}</span>
