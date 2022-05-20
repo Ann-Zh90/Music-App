@@ -11,6 +11,16 @@ const Result = (props) => {
   const onClickHandler = () => {
     dispatch(userActions.resetTotalScore());
   };
+  const maxScore = 12;
+  const titleText =
+    totalScore === maxScore
+      ? `${userName}, did so great!`
+      : `${userName}, you can do better, try again!`;
+  const summaryMessage =
+    totalScore === maxScore
+      ? `You've got ${totalScore} out of ${maxScore} points. You are definitely a music
+          lover!`
+      : `You've got ${totalScore} out of ${maxScore} points.`;
   return (
     <div className={style.result}>
       <div className={style.wrapper}>
@@ -18,11 +28,8 @@ const Result = (props) => {
         <div className={style.crown}>
           <img src={crown} alt="crown" />
         </div>
-        <h1 className={style.title}>{userName}, did so great!</h1>
-        <p>
-          You got {totalScore} out of 20 points. You are definitely a music
-          lover!
-        </p>
+        <h1 className={style.title}>{titleText}</h1>
+        <p>{summaryMessage}</p>
         <div className={style.btn}>
           <Button link={"/question"} onClick={onClickHandler}>
             Try again
