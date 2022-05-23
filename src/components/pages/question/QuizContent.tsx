@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useAppSelector, useAppDispatch } from "../../../store/hooks";
 import { userActions } from "../../../store/user-part";
 import Selector from "../../controls/Selector";
 import Player1 from "../../controls/Player1";
@@ -7,17 +7,27 @@ import SongInfo from "./SongInfo";
 import star from "../../../assets/star.svg";
 
 import style from "./QuizContent.module.css";
-import { gameActions } from "./../../../store/game-part";
+import { gameActions } from "../../../store/game-part";
+import { MusicGenre, Song } from "./../../../store/user-part";
 
-const QuizContent = ({ content, isButtonDisabled }) => {
+interface QuizContentProps {
+  content: MusicGenre;
+  isButtonDisabled(value: React.SetStateAction<boolean>): void;
+}
+interface InfoSong {
+  id: string;
+  title: string;
+}
+
+const QuizContent = ({ content, isButtonDisabled }: QuizContentProps) => {
   const [attemps, setAttemps] = useState(1);
-  const { rigthAnswer, questionNum, chosenSongInfo } = useSelector(
+  const { rigthAnswer, questionNum, chosenSongInfo } = useAppSelector(
     (state) => state.game
   );
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
-  const getChosenSongId = (info) => {
+  const getChosenSongId = (info: InfoSong) => {
     dispatch(gameActions.setChosenSongInfo(info));
   };
 
@@ -39,10 +49,10 @@ const QuizContent = ({ content, isButtonDisabled }) => {
     }
   }, [content, dispatch]);
 
-  let listOfOptions = [];
+  let listOfOptions: Array<JSX.Element> | [] = [];
   let genre = "";
-  let chosenSongData = {};
-  let questionData = null;
+  let chosenSongData: Song | undefined | {} = {};
+  let questionData: null | Song = null;
   if (content && questionNum) {
     genre = content.genre;
     if (chosenSongInfo) {
@@ -59,7 +69,7 @@ const QuizContent = ({ content, isButtonDisabled }) => {
           onClick={getChosenSongId}
           key={item.id}
           id={item.id}
-          quizSongId={questionData.id}
+          quizSongId={questionData?.id}
           rightAnswerIsFound={rightAnswerIsFound}
           countAttemps={countAttemps}
           rightAnswer={rigthAnswer}
@@ -75,7 +85,6 @@ const QuizContent = ({ content, isButtonDisabled }) => {
           <p>Listen to the audio and guess what song is it from the list</p>
         </div>
         <Player1
-          className={style.player}
           content={questionData}
           rigthAnswer={rigthAnswer}
           isArtistPhotoShown={true}

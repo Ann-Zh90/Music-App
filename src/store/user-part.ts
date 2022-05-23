@@ -6,17 +6,18 @@ interface UserState {
   musicData: Array<MusicGenre>;
   isLoading: boolean;
 }
-interface Song {
+export interface Song {
   id: string;
+  name: string;
   songTitle: string;
   image: string;
   audio: string;
   description: string;
 }
-interface MusicGenre {
+export interface MusicGenre {
   id: number;
   genre: string;
-  name: [Song];
+  data: Array<Song>;
 }
 
 const initialState: UserState = {
