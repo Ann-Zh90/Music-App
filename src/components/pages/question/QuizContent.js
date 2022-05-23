@@ -10,9 +10,8 @@ import style from "./QuizContent.module.css";
 import { gameActions } from "./../../../store/game-part";
 
 const QuizContent = ({ content, isButtonDisabled }) => {
-  //const [chosenSongInfo, setChosenSongInfo] = useState(null);
   const [attemps, setAttemps] = useState(1);
-  const { rigthAnswer, questionNum, /*attemps,*/ chosenSongInfo } = useSelector(
+  const { rigthAnswer, questionNum, chosenSongInfo } = useSelector(
     (state) => state.game
   );
 
@@ -31,7 +30,6 @@ const QuizContent = ({ content, isButtonDisabled }) => {
 
   const countAttemps = () => {
     setAttemps((prev) => prev + 1);
-    //dispatch(gameActions.setAttemps());
   };
 
   useEffect(() => {
@@ -44,7 +42,6 @@ const QuizContent = ({ content, isButtonDisabled }) => {
   let listOfOptions = [];
   let genre = "";
   let chosenSongData = {};
-  //let questionNum = null;
   let questionData = null;
   if (content && questionNum) {
     genre = content.genre;
@@ -85,7 +82,6 @@ const QuizContent = ({ content, isButtonDisabled }) => {
         />
         <div className={style.questions}>{listOfOptions}</div>
       </div>
-      <div className={style.infoSection}></div>
       {chosenSongInfo ? (
         <SongInfo songData={chosenSongData} title={chosenSongInfo.title} />
       ) : (

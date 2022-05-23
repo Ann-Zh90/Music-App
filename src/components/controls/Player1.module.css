@@ -15,6 +15,7 @@
   border-top-right-radius: 0;
 }
 .playBtn {
+  position: relative;
   width: 114px;
   height: 114px;
   background: linear-gradient(
@@ -140,7 +141,17 @@ input[type="range"]::-ms-track {
   background-color: rgba(250, 250, 250, 0.7);
   border-radius: 50%;
   color: #373b62;
+  transition: all 0.2s ease;
+
+  padding-left: 3px;
+  padding-top: 2px;
 }
+.circle:hover {
+  width: 59px;
+  height: 59px;
+  background-color: rgba(250, 250, 250, 1);
+}
+
 /* .circle::after {
   content: "";
   position: absolute;

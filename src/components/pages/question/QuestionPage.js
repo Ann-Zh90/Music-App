@@ -46,8 +46,6 @@ const QuestionPage = () => {
     id: item.id,
   }));
 
- 
-
   return (
     <div>
       {isLoading ? (
@@ -56,7 +54,7 @@ const QuestionPage = () => {
         <div className={style.container}>
           <Header />
           <div>
-            <NavBar listOfGanre={listOfGanre} />
+            <NavBar listOfGanre={listOfGanre} currentGanre={currentGanre} />
             <QuizContent
               content={musicData[currentGanre]}
               isButtonDisabled={setIsButtonDisabled}

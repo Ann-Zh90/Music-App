@@ -3,6 +3,8 @@
   height: 5px;
   border-radius: 5px;
   color: #fff;
+}
+.progressBGround1 {
   background: linear-gradient(
       270deg,
       rgba(255, 255, 255, 0) 74.64%,
@@ -10,6 +12,74 @@
     ),
     linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
 }
+
+.progressBGround2 {
+  background: linear-gradient(
+      270.05deg,
+      #7e55b300 75%,
+      #a769c4 85%,
+      #a769c4 100%
+    ),
+    linear-gradient(0deg, #ffffff33, #ffffff33);
+}
+
+.progressBGround3 {
+  background: linear-gradient(
+      270.05deg,
+      #7e55b300 75%,
+      #a769c4 85%,
+      #a769c4 100%
+    ),
+    linear-gradient(270deg, #ffffff00 50%, #ffffff 75%),
+    linear-gradient(0deg, #ffffff33, #ffffff33);
+}
+.progressBGround4 {
+  background: linear-gradient(
+      270.05deg,
+      #7e55b300 50%,
+      #a769c4 65%,
+      #a769c4 100%
+    ),
+    linear-gradient(0deg, #ffffff33, #ffffff33);
+}
+.progressBGround5 {
+  background: linear-gradient(
+      270.05deg,
+      #7e55b300 45%,
+      #a769c4 55%,
+      #a769c4 100%
+    ),
+    linear-gradient(270deg, #ffffff00 20%, #ffffff 30%),
+    linear-gradient(0deg, #ffffff33, #ffffff33);
+}
+.progressBGround6 {
+  background: linear-gradient(
+      270.05deg,
+      #7e55b300 25%,
+      #a769c4 50%,
+      #a769c4 100%
+    ),
+    linear-gradient(0deg, #ffffff33, #ffffff33);
+}
+.progressBGround7 {
+  background: linear-gradient(
+      270.05deg,
+      #7e55b300 0%,
+      #a769c4 25%,
+      #a769c4 100%
+    ),
+    linear-gradient(0deg, #ffffff, #ffffff);
+}
+.progressBGround8 {
+  background: #a769c3;
+}
+
+/*
+background: linear-gradient(270.05deg, rgba(126, 85, 179, 0) 73.26%, #A769C4 85%, #A769C4 99.71%),
+linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
+
+
+*/
 .ganre {
   background-color: rgba(27, 29, 49, 1);
 
@@ -31,4 +101,12 @@
   display: flex;
   justify-content: space-between;
   padding: 10px 60px;
+}
+
+.correct {
+  color: #dca1f8;
+}
+
+.active {
+  color: #fff;
 }
