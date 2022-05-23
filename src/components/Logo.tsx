@@ -3,7 +3,7 @@ import logo from "../assets/Logo.svg";
 const Logo = () => {
   return (
     <div>
-      <img src={logo} alt="logo" width="138px" heigth="23px" />
+      <img src={logo} alt="logo" width="138px" height="23px" />
     </div>
   );
 };

@@ -33,7 +33,7 @@ const gamePart = createSlice({
     setAttemps(state) {
       state.attemps = state.attemps + 1;
     },
-    setChosenSongInfo(state, action: PayloadAction<ChosenSong>) {
+    setChosenSongInfo(state, action: PayloadAction<ChosenSong | null>) {
       state.chosenSongInfo = action.payload;
     },
     toggleIsSongPlaying(state) {

@@ -1,6 +1,15 @@
+import { AnyAction } from "redux";
+import { RootState } from "./store";
+import { ThunkAction } from "redux-thunk";
+
 import { userActions } from "./user-part";
 
-export const fetchMusicData = () => {
+export const fetchMusicData = (): ThunkAction<
+  void,
+  RootState,
+  unknown,
+  AnyAction
+> => {
   return async (dispatch) => {
     dispatch(userActions.toggleIsLoading(true));
     const fetchData = async () => {
