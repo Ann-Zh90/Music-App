@@ -1,6 +1,7 @@
 import style from "./StartPage.module.css";
 import Welcome from "./Welcome";
-import Logo from "./../../Logo";
+import Logo from "../../Logo";
+
 //import { useState } from "react";
 
 const StartPage = () => {

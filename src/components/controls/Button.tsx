@@ -3,10 +3,17 @@ import { useNavigate } from "react-router-dom";
 import arrow from "../../assets/Union.svg";
 import style from "./Button.module.css";
 
-const Button = (props) => {
+interface ButtonProps {
+  disabled: boolean;
+  link: string;
+  onClick?(e: React.MouseEvent<HTMLButtonElement>): void;
+  children: React.ReactNode;
+}
+
+const Button = (props: ButtonProps) => {
   const navigate = useNavigate();
-  const handleClick = () => {
-    if (props.onClick) props.onClick();
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    if (props.onClick) props.onClick(e);
     if (props.link) navigate(props.link);
   };
   return (

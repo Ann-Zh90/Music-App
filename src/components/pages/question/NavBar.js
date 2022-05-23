@@ -7,9 +7,6 @@ const NavBar = ({ listOfGanre, currentGanre }) => {
   const [steps, setSteps] = useState(0);
   const isRigthAnswer = useSelector((state) => state.game.rigthAnswer);
 
-  console.log("render Navbar");
-  console.log(isRigthAnswer);
-
   useEffect(() => {
     //(index < currentGanre || (index<=currentGanre && isRightAnswer))
     setSteps((prev) => prev + 1);
@@ -39,7 +36,6 @@ const NavBar = ({ listOfGanre, currentGanre }) => {
   });
 
   const progressGradient = style[`progressBGround${steps}`];
-  console.log(progressGradient);
   return (
     <div>
       <div className={`${style.progress} ${progressGradient}`}></div>

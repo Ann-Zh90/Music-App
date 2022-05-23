@@ -1,6 +1,18 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-const initialState = {
+interface ChosenSong {
+  id: string;
+  title: string;
+}
+interface GameState {
+  rigthAnswer: boolean;
+  chosenSongInfo: ChosenSong | null;
+  questionNum: number | null;
+  attemps: number;
+  isSongPlaying: boolean;
+}
+
+const initialState: GameState = {
   rigthAnswer: false,
   chosenSongInfo: null,
   questionNum: null,
@@ -12,16 +24,16 @@ const gamePart = createSlice({
   name: "game",
   initialState,
   reducers: {
-    setRigthAnswer(state, action) {
+    setRigthAnswer(state, action: PayloadAction<boolean>) {
       state.rigthAnswer = action.payload;
     },
-    setQuestionNum(state, action) {
+    setQuestionNum(state, action: PayloadAction<number>) {
       state.questionNum = action.payload;
     },
     setAttemps(state) {
       state.attemps = state.attemps + 1;
     },
-    setChosenSongInfo(state, action) {
+    setChosenSongInfo(state, action: PayloadAction<ChosenSong>) {
       state.chosenSongInfo = action.payload;
     },
     toggleIsSongPlaying(state) {
