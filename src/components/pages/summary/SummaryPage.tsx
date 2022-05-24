@@ -1,6 +1,6 @@
 import style from "./SummaryPage.module.css";
 import Result from "./Result";
-import Logo from "./../../Logo";
+import Logo from "../../Logo";
 //import { useState } from "react";
 
 const SummaryPage = () => {

@@ -4,7 +4,7 @@ import arrow from "../../assets/Union.svg";
 import style from "./Button.module.css";
 
 interface ButtonProps {
-  disabled: boolean;
+  disabled?: boolean;
   link?: string | null;
   onClick?(e: React.MouseEvent<HTMLButtonElement>): void;
   children: React.ReactNode;

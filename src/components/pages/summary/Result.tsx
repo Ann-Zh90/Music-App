@@ -1,12 +1,12 @@
 import style from "./Result.module.css";
 import Button from "../../controls/Button";
 import crown from "../../../assets/crown.svg";
-import { useSelector, useDispatch } from "react-redux";
+import { useAppSelector, useAppDispatch } from "../../../store/hooks";
 import { userActions } from "../../../store/user-part";
 
-const Result = (props) => {
-  const { userName, totalScore } = useSelector((state) => state.user);
-  const dispatch = useDispatch();
+const Result = () => {
+  const { userName, totalScore } = useAppSelector((state) => state.user);
+  const dispatch = useAppDispatch();
   //const [userName, setUserName] = useState("");
   const onClickHandler = () => {
     dispatch(userActions.resetTotalScore());
