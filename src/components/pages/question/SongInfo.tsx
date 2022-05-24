@@ -1,5 +1,4 @@
 import style from "./SongInfo.module.css";
-import { useEffect } from "react";
 import Player1 from "../../controls/Player1";
 
 import type { Song } from "../../../store/user-part";

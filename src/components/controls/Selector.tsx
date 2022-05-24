@@ -1,7 +1,20 @@
 import { useState } from "react";
+import { MouseEvent } from "react";
+import type { ChosenSong } from "../../store/game-part";
 import style from "./Selector.module.css";
 
-const Selector = (props) => {
+interface SelectorProps {
+  onClick(e: ChosenSong): void;
+  key: string;
+  id: string;
+  quizSongId: string;
+  rightAnswerIsFound(): void;
+  countAttemps(): void;
+  rightAnswer: boolean;
+  children: React.ReactNode;
+}
+
+const Selector = (props: SelectorProps) => {
   const [isRigthChoice, setIsRightChoise] = useState(false);
   const [isTouched, setIsTouched] = useState(false);
 
@@ -13,12 +26,10 @@ const Selector = (props) => {
     selectorStyle = `${style.selector} ${style.incorrect}`;
   }
 
- 
-
-  const onClickHandler = (e) => {
+  const onClickHandler = (e: MouseEvent<HTMLElement>) => {
     props.onClick({
       id: e.currentTarget.id,
-      title: props.children,
+      title: String(props.children),
     });
     if (!props.rightAnswer) {
       props.countAttemps();

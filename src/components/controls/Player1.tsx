@@ -1,13 +1,9 @@
-import { useRef, useState, useEffect, useMemo, SyntheticEvent } from "react";
+import { useRef, useState, useEffect, useMemo } from "react";
 import style from "./Player1.module.css";
 import { faPlay, faPause } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { ChangeEvent } from "react";
-
-import { useDispatch } from "react-redux";
-import { gameActions } from "../../store/game-part";
-import PlayBtn from "./PlayBtn";
 
 import { Song } from "../../store/user-part";
 

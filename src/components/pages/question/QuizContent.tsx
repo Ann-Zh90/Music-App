@@ -5,6 +5,7 @@ import Selector from "../../controls/Selector";
 import Player1 from "../../controls/Player1";
 import SongInfo from "./SongInfo";
 import star from "../../../assets/star.svg";
+import type { ChosenSong } from "../../../store/game-part";
 
 import style from "./QuizContent.module.css";
 import { gameActions } from "../../../store/game-part";
@@ -13,10 +14,6 @@ import { MusicGenre, Song } from "./../../../store/user-part";
 interface QuizContentProps {
   content: MusicGenre;
   isButtonDisabled(value: React.SetStateAction<boolean>): void;
-}
-interface InfoSong {
-  id: string;
-  title: string;
 }
 
 const QuizContent = ({ content, isButtonDisabled }: QuizContentProps) => {
@@ -27,7 +24,7 @@ const QuizContent = ({ content, isButtonDisabled }: QuizContentProps) => {
 
   const dispatch = useAppDispatch();
 
-  const getChosenSongId = (info: InfoSong) => {
+  const getChosenSongId = (info: ChosenSong) => {
     dispatch(gameActions.setChosenSongInfo(info));
   };
 
