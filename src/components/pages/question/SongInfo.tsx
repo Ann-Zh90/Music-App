@@ -2,13 +2,17 @@ import style from "./SongInfo.module.css";
 import { useEffect } from "react";
 import Player1 from "../../controls/Player1";
 
-//`https://levi9-song-quiz.herokuapp.com/api/${url}`
-const SongInfo = ({ songData, title }) => {
-  let urlAudio = "";
+import type { Song } from "../../../store/user-part";
+
+interface SongInfoProps {
+  songData: Song;
+  title: string;
+}
+
+const SongInfo = ({ songData, title }: SongInfoProps) => {
   let urlImg = "";
   let description = "";
   if (songData) {
-    urlAudio = `https://levi9-song-quiz.herokuapp.com/api/${songData.audio}`;
     urlImg = `https://levi9-song-quiz.herokuapp.com/api/${songData.image}`;
     description = songData.description;
   }
@@ -23,8 +27,8 @@ const SongInfo = ({ songData, title }) => {
         </audio> */}
         <Player1
           content={songData}
-          className={style.player}
           isArtistPhotoShown={false}
+          rigthAnswer={false}
         />
       </div>
       <p className={style.description}>{description}</p>

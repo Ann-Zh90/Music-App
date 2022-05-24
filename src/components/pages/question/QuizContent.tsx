@@ -48,17 +48,17 @@ const QuizContent = ({ content, isButtonDisabled }: QuizContentProps) => {
       dispatch(gameActions.setQuestionNum(num));
     }
   }, [content, dispatch]);
-
+  //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   let listOfOptions: Array<JSX.Element> | [] = [];
   let genre = "";
-  let chosenSongData: Song | undefined | {} = {};
-  let questionData: null | Song = null;
+  let chosenSongData = {} as Song;
+  let questionData = {} as Song;
   if (content && questionNum) {
     genre = content.genre;
     if (chosenSongInfo) {
       chosenSongData = content.data.find(
         (item) => item.id === chosenSongInfo.id
-      );
+      ) as Song;
     }
 
     questionData = content.data[questionNum];
@@ -77,6 +77,7 @@ const QuizContent = ({ content, isButtonDisabled }: QuizContentProps) => {
       );
     });
   }
+  //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   return (
     <div className={style.container}>
       <div className={style.questionSection}>

@@ -10,6 +10,7 @@
 html,
 body {
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 62.5%;
 }
 
 body {
@@ -17,24 +18,4 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
-}
-
-button {
-  font: inherit;
-  background: #ff2058;
-  padding: 0.5rem 2rem;
-  color: white;
-  border: 1px solid #ff2058;
-  margin: 0.5rem 0;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover,
-button:active {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.26);
-}
-
-button:focus {
-  outline: none;
 }

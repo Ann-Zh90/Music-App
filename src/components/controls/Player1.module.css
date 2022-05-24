@@ -142,9 +142,10 @@ input[type="range"]::-ms-track {
   border-radius: 50%;
   color: #373b62;
   transition: all 0.2s ease;
-
+  font-size: 1.4rem;
+  /* 
   padding-left: 3px;
-  padding-top: 2px;
+  padding-top: 2px; */
 }
 .circle:hover {
   width: 59px;

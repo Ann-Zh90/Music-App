@@ -10,26 +10,26 @@
   margin: 0 auto;
   vertical-align: middle;
   text-align: center;
-  width: 1100px;
+  width: 110rem;
   background: #1b1d31;
   color: #fff;
-  padding: 90px 0;
+  padding: 9rem 0;
 }
 
 .title {
-  font-size: 30px;
+  font-size: 3rem;
   font-weight: 700;
-  line-height: 45px;
+  line-height: 4.5rem;
   text-align: center;
   font-family: "Prompt", sans-serif;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
 }
 
 .welcome p {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-  font-size: 16px;
+  font-size: 1.6rem;
   opacity: 0.7;
 }
 .btn {
-  margin-top: 30px;
+  margin-top: 3rem;
 }

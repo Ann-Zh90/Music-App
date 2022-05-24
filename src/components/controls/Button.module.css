@@ -4,11 +4,11 @@
   border-radius: 5px;
   border: none;
   font-family: Arial;
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 700;
-  line-height: 24px;
+  line-height: 2.4rem;
   text-align: center;
-  padding: 20px;
+  padding: 2rem;
   font-style: normal;
   text-transform: uppercase;
 }
@@ -27,5 +27,5 @@
   display: inline-block;
   color: #ffffff;
   text-decoration: none;
-  margin-right: 10px;
+  margin-right: 1rem;
 }
