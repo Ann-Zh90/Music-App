@@ -1,15 +1,15 @@
 .infoSection {
-  width: 1000px;
+  flex: 1 1 66%;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 3rem;
 }
 
 h1 {
   font-family: "Prompt", sans-serif;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 700;
-  line-height: 30px;
+  line-height: 3rem;
   letter-spacing: 0em;
   text-align: left;
   color: #fff;
@@ -25,9 +25,8 @@ h1 {
   font-family: Arial;
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 1.6rem;
   line-height: 150%;
-  /* or 24px */
 
   text-align: center;
 
@@ -52,4 +51,16 @@ h1 {
 
 .player {
   border-radius: 0 0 5px 5px;
+}
+
+@media (max-width: 768px) {
+  .mainContent img {
+    height: 30rem;
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1279px) {
+  .mainContent img {
+    height: 45rem;
+  }
 }

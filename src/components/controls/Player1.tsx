@@ -32,6 +32,13 @@ const Player1 = ({ content, rigthAnswer, isArtistPhotoShown }: PlayerProps) => {
 
   const audio = useMemo(() => new Audio(urlAudio), [urlAudio]);
 
+  useEffect(() => {
+    if (audio.ended) {
+      setIsPlaying(false);
+      setCurrentTime(0);
+    }
+  }, [audio.ended]);
+
   const onClickHandler = () => {
     if (audio.paused) {
       audio.play();
@@ -47,9 +54,9 @@ const Player1 = ({ content, rigthAnswer, isArtistPhotoShown }: PlayerProps) => {
   };
 
   useEffect(() => {
-    const getDuration = (e: any) => {
-      //!!!!!!!!!!!!!!!!!!!!!!!!! type of e
-      setDuration(e.currentTarget.duration);
+    const getDuration = (e: Event) => {
+      const currentTarget = e.currentTarget as HTMLAudioElement;
+      setDuration(currentTarget.duration);
     };
 
     audio.addEventListener("loadedmetadata", getDuration);
@@ -63,11 +70,11 @@ const Player1 = ({ content, rigthAnswer, isArtistPhotoShown }: PlayerProps) => {
   }, [audio]);
 
   useEffect(() => {
-    const timeupdate = (e: any) => {
-      // type of event
-      setCurrentTime(e.target.currentTime);
+    const timeupdate = (e: Event) => {
+      const target = e.target as HTMLAudioElement;
+      setCurrentTime(target.currentTime);
       if (null !== inputRef.current) {
-        inputRef.current.value = String(e.target.currentTime);
+        inputRef.current.value = String(target.currentTime);
       }
     };
     if (null !== inputRef.current) {
@@ -100,7 +107,7 @@ const Player1 = ({ content, rigthAnswer, isArtistPhotoShown }: PlayerProps) => {
         }
       >
         {rigthAnswer && (
-          <img src={urlImage} alt="artist" width="114px" height="114px" />
+          <img src={urlImage} alt="artist" width="11.4rem" height="11.4px" />
         )}
         {/* <PlayBtn onClick={onClickHandler} isPlaying={isPlaying} /> */}
         <div className={style.circle} onClick={onClickHandler}>

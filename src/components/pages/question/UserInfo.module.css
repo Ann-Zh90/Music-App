@@ -1,12 +1,12 @@
 .container {
   display: flex;
   color: #fff;
-  gap: 30px;
+  gap: 3rem;
   justify-content: space-between;
   font-family: Arial;
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 700;
-  line-height: 24px;
+  line-height: 2.4rem;
   letter-spacing: 0em;
   text-align: left;
   text-transform: uppercase;

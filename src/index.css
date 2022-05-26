@@ -17,5 +17,12 @@ body {
   background-image: url("assets/1.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh;
+  height: 100%;
+}
+
+@media (max-width: 1366px) {
+  html,
+  body {
+    font-size: 50%;
+  }
 }

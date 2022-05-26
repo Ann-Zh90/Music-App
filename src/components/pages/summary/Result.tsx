@@ -26,7 +26,7 @@ const Result = () => {
       <div className={style.wrapper}>
         <div className={style.circle}>{totalScore}</div>
         <div className={style.crown}>
-          <img src={crown} alt="crown" />
+          <img src={crown} alt="crown" width="318" />
         </div>
         <h1 className={style.title}>{titleText}</h1>
         <p>{summaryMessage}</p>

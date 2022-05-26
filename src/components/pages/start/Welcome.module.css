@@ -3,17 +3,21 @@
 .welcome {
   display: flex;
   align-items: center;
+  justify-content: center;
   height: 100vh;
 }
 
 .wrapper {
-  margin: 0 auto;
-  vertical-align: middle;
-  text-align: center;
-  width: 110rem;
-  background: #1b1d31;
-  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 41rem;
   padding: 9rem 0;
+  color: #fff;
+  text-align: center;
+  background: #1b1d31;
 }
 
 .title {
@@ -30,6 +34,58 @@
   font-size: 1.6rem;
   opacity: 0.7;
 }
+
+.form {
+  width: 66%;
+}
 .btn {
   margin-top: 3rem;
+}
+/*
+@media (max-width: 1200px) {
+  .wrapper {
+    margin: 0 22rem;
+  }
+}*/
+/*
+@media (max-width: 992px) {
+  .wrapper {
+    width: 90rem;
+    padding: 9rem 18.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    width: 90rem;
+    padding: 9rem 18.5rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .wrapper {
+    width: 60rem;
+    padding: 9rem 14.5rem;
+  }
+}
+*/
+/*
+@media (max-width: 480px) {
+  .wrapper {
+    margin: 0 10rem;
+    padding: 9rem 0.5rem;
+  }
+}*/
+
+@media (max-width: 768px) {
+  .wrapper {
+    margin: 0;
+    padding: 9rem 0.5rem;
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1279px) {
+  .wrapper {
+    margin: 0 20rem;
+  }
 }

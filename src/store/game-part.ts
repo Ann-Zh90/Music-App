@@ -10,6 +10,7 @@ interface GameState {
   questionNum: number | null;
   attemps: number;
   isSongPlaying: boolean;
+  errorMessage: string | null;
 }
 
 const initialState: GameState = {
@@ -18,6 +19,7 @@ const initialState: GameState = {
   questionNum: null,
   attemps: 0,
   isSongPlaying: false,
+  errorMessage: null,
 };
 
 const gamePart = createSlice({
@@ -38,6 +40,9 @@ const gamePart = createSlice({
     },
     toggleIsSongPlaying(state) {
       state.isSongPlaying = !state.isSongPlaying;
+    },
+    showError(state, action) {
+      state.errorMessage = action.payload;
     },
   },
 });

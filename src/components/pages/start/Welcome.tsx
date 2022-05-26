@@ -35,7 +35,7 @@ const Welcome = () => {
       <div className={style.wrapper}>
         <h1 className={style.title}>Welcome!</h1>
         <p>Please enter your name and lets start our quiz!</p>
-        <form onSubmit={onSubmitHandler}>
+        <form onSubmit={onSubmitHandler} className={style.form}>
           <Input onInput={onInputHandler} userName={userInfo.userName} />
           <div className={style.btn}>
             <Button disabled={isButtonDisabled} link={"/question"}>

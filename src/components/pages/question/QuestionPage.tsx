@@ -10,9 +10,11 @@ import Spinner from "../../controls/Spinner";
 import { useAppDispatch, useAppSelector } from "../../../store/hooks";
 
 import style from "./QuestionPage.module.css";
+import ErrorShow from "./ErrorShow";
 
 const QuestionPage = () => {
   const generalData = useAppSelector((state) => state.user);
+  const { errorMessage } = useAppSelector((state) => state.game);
   const dispatch = useAppDispatch();
 
   const [currentGanre, setCurrentGanre] = useState(0);
@@ -48,29 +50,29 @@ const QuestionPage = () => {
 
   return (
     <div>
-      {isLoading ? (
+      {isLoading || !musicData.length ? (
         <Spinner />
       ) : (
         <div className={style.container}>
           <Header />
-          <div>
-            <NavBar listOfGanre={listOfGanre} currentGanre={currentGanre} />
-            <QuizContent
-              content={musicData[currentGanre]}
-              isButtonDisabled={setIsButtonDisabled}
-            />
-            <div className={style.btn}>
-              <Button
-                onClick={onClickHandler}
-                disabled={isButtonDisabled}
-                link={link}
-              >
-                {btnName}
-              </Button>
-            </div>
+          <NavBar listOfGanre={listOfGanre} currentGanre={currentGanre} />
+          <QuizContent
+            content={musicData[currentGanre]}
+            isButtonDisabled={setIsButtonDisabled}
+          />
+          <div className={style.btn}>
+            <Button
+              onClick={onClickHandler}
+              disabled={isButtonDisabled}
+              link={link}
+            >
+              {btnName}
+            </Button>
           </div>
         </div>
       )}
+
+      {!isLoading && errorMessage && <ErrorShow>{errorMessage}</ErrorShow>}
     </div>
   );
 };

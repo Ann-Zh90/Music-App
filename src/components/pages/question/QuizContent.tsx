@@ -40,10 +40,8 @@ const QuizContent = ({ content, isButtonDisabled }: QuizContentProps) => {
   };
 
   useEffect(() => {
-    if (content) {
-      const num = Math.floor(Math.random() * (content.data.length - 1) + 1);
-      dispatch(gameActions.setQuestionNum(num));
-    }
+    const num = Math.floor(Math.random() * (content.data.length - 1) + 1);
+    dispatch(gameActions.setQuestionNum(num));
   }, [content, dispatch]);
   //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   let listOfOptions: Array<JSX.Element> | [] = [];
@@ -70,7 +68,9 @@ const QuizContent = ({ content, isButtonDisabled }: QuizContentProps) => {
           rightAnswerIsFound={rightAnswerIsFound}
           countAttemps={countAttemps}
           rightAnswer={rigthAnswer}
-        >{`0${index + 1}: ${item.name} - ${item.songTitle}`}</Selector>
+        >
+          {`0${index + 1}: ${item.name} - ${item.songTitle}`}
+        </Selector>
       );
     });
   }
