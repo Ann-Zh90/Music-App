@@ -1,23 +1,25 @@
-import { useEffect } from "react";
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 import { gameActions } from "../../../store/game-part";
 import Header from "./Header";
 import NavBar from "./NavBar";
 import QuizContent from "./QuizContent";
 import { fetchMusicData } from "../../../store/user-actions";
 import Button from "../../controls/Button";
+import Spinner from "../../controls/Spinner";
+
+import { useAppDispatch, useAppSelector } from "../../../store/hooks";
 
 import style from "./QuestionPage.module.css";
-import Spinner from "./../../controls/Spinner";
+import ErrorShow from "./ErrorShow";
 
 const QuestionPage = () => {
-  const generalData = useSelector((state) => state.user);
-  const dispatch = useDispatch();
+  const generalData = useAppSelector((state) => state.user);
+  const { errorMessage } = useAppSelector((state) => state.game);
+  const dispatch = useAppDispatch();
 
   const [currentGanre, setCurrentGanre] = useState(0);
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
-  const [link, setLink] = useState(null);
+  const [link, setLink] = useState<string | null>(null);
 
   const musicData = generalData.musicData;
   const isLoading = generalData.isLoading;
@@ -48,29 +50,29 @@ const QuestionPage = () => {
 
   return (
     <div>
-      {isLoading ? (
+      {isLoading || !musicData.length ? (
         <Spinner />
       ) : (
         <div className={style.container}>
           <Header />
-          <div>
-            <NavBar listOfGanre={listOfGanre} currentGanre={currentGanre} />
-            <QuizContent
-              content={musicData[currentGanre]}
-              isButtonDisabled={setIsButtonDisabled}
-            />
-            <div className={style.btn}>
-              <Button
-                onClick={onClickHandler}
-                disabled={isButtonDisabled}
-                link={link}
-              >
-                {btnName}
-              </Button>
-            </div>
+          <NavBar listOfGanre={listOfGanre} currentGanre={currentGanre} />
+          <QuizContent
+            content={musicData[currentGanre]}
+            isButtonDisabled={setIsButtonDisabled}
+          />
+          <div className={style.btn}>
+            <Button
+              onClick={onClickHandler}
+              disabled={isButtonDisabled}
+              link={link}
+            >
+              {btnName}
+            </Button>
           </div>
         </div>
       )}
+
+      {!isLoading && errorMessage && <ErrorShow>{errorMessage}</ErrorShow>}
     </div>
   );
 };

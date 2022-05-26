@@ -1,5 +1,5 @@
 import { Route, Routes, Navigate } from "react-router-dom";
-import StartPage from "./components/pages/start/StartPage";
+import StartPage from "./components/pages/start/StartPage.tsx";
 import NotFound from "./components/pages/NotFound";
 import QuestionPage from "./components/pages/question/QuestionPage";
 import SummaryPage from "./components/pages/summary/SummaryPage";

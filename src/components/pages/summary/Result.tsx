@@ -1,12 +1,12 @@
 import style from "./Result.module.css";
 import Button from "../../controls/Button";
 import crown from "../../../assets/crown.svg";
-import { useSelector, useDispatch } from "react-redux";
+import { useAppSelector, useAppDispatch } from "../../../store/hooks";
 import { userActions } from "../../../store/user-part";
 
-const Result = (props) => {
-  const { userName, totalScore } = useSelector((state) => state.user);
-  const dispatch = useDispatch();
+const Result = () => {
+  const { userName, totalScore } = useAppSelector((state) => state.user);
+  const dispatch = useAppDispatch();
   //const [userName, setUserName] = useState("");
   const onClickHandler = () => {
     dispatch(userActions.resetTotalScore());
@@ -26,7 +26,7 @@ const Result = (props) => {
       <div className={style.wrapper}>
         <div className={style.circle}>{totalScore}</div>
         <div className={style.crown}>
-          <img src={crown} alt="crown" />
+          <img src={crown} alt="crown" width="318" />
         </div>
         <h1 className={style.title}>{titleText}</h1>
         <p>{summaryMessage}</p>

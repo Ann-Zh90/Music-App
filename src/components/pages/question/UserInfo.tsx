@@ -1,8 +1,9 @@
-import style from "./UserInfo.module.css";
 import { useSelector } from "react-redux";
+import type { RootState } from "../../../store/store";
+import style from "./UserInfo.module.css";
 
-const UserInfo = (props) => {
-  const userInfo = useSelector((state) => state.user);
+const UserInfo = () => {
+  const userInfo = useSelector((state: RootState) => state.user);
   return (
     <div className={style.container}>
       <p className={style.name}>{userInfo.userName}</p>

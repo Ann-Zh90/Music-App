@@ -1,6 +1,12 @@
 .logo {
   position: absolute;
-  top: 90px;
+  top: 9rem;
   left: 50%;
   transform: translate(-50%, 0%);
+}
+
+@media (max-width: 1366px) {
+  .logo {
+    top: 4rem;
+  }
 }

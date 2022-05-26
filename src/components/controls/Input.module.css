@@ -3,18 +3,17 @@
 }
 
 .input {
-  width: 455px;
+  width: 100%;
   background-color: transparent;
   border: none;
   border-bottom: 1px #373b62 solid;
-  padding: 0 138px 20px 138px;
+  padding-bottom: 2rem;
 
   font-family: Arial;
-  font-size: 14px;
+  font-size: 1.4rem;
   font-weight: 700;
-  line-height: 21px;
+  line-height: 2.1rem;
   letter-spacing: 0em;
-  text-align: left;
   color: #fff;
   text-align: center;
   text-transform: uppercase;
@@ -34,9 +33,15 @@
   font-family: "Arial";
   font-style: normal;
   font-weight: 400;
-  font-size: 14px;
-  line-height: 21px;
+  font-size: 1.4rem;
+  line-height: 2.1rem;
   text-transform: uppercase;
   color: #ffffff;
   opacity: 0.5;
+}
+
+@media (max-width: 992px) {
+  .wrapper {
+    margin-top: 7rem;
+  }
 }

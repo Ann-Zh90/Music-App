@@ -1,9 +1,9 @@
-import style from "./StartPage.module.css";
-import Welcome from "./Welcome";
-import Logo from "./../../Logo";
+import style from "./SummaryPage.module.css";
+import Result from "./Result";
+import Logo from "../../Logo";
 //import { useState } from "react";
 
-const StartPage = () => {
+const SummaryPage = () => {
   //const [userName, setUserName] = useState("");
 
   return (
@@ -12,10 +12,10 @@ const StartPage = () => {
         <div className={style.logo}>
           <Logo />
         </div>
-        <Welcome />
+        <Result />
       </div>
     </main>
   );
 };
 
-export default StartPage;
+export default SummaryPage;

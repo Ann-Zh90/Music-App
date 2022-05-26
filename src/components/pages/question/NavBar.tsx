@@ -1,14 +1,21 @@
 import { Fragment, useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "../../../store/hooks";
 import arrow from "../../../assets/Union.svg";
 import style from "./NavBar.module.css";
 
-const NavBar = ({ listOfGanre, currentGanre }) => {
-  const [steps, setSteps] = useState(0);
-  const isRigthAnswer = useSelector((state) => state.game.rigthAnswer);
+type Ganre = {
+  genre: string;
+  id: number;
+};
 
-  console.log("render Navbar");
-  console.log(isRigthAnswer);
+interface NavBarProps {
+  listOfGanre: Array<Ganre>;
+  currentGanre: number;
+}
+
+const NavBar = ({ listOfGanre, currentGanre }: NavBarProps) => {
+  const [steps, setSteps] = useState(0);
+  const isRigthAnswer = useAppSelector((state) => state.game.rigthAnswer);
 
   useEffect(() => {
     //(index < currentGanre || (index<=currentGanre && isRightAnswer))
@@ -32,14 +39,13 @@ const NavBar = ({ listOfGanre, currentGanre }) => {
           {item.genre.toUpperCase()}
         </li>
         <li key={item.id + "arrow"} className={genreFontColor}>
-          <img src={arrow} width="19.44px" heigth="11.2px" alt="arrow" />
+          <img src={arrow} width="19.44px" height="11.2px" alt="arrow" />
         </li>
       </Fragment>
     );
   });
 
   const progressGradient = style[`progressBGround${steps}`];
-  console.log(progressGradient);
   return (
     <div>
       <div className={`${style.progress} ${progressGradient}`}></div>
