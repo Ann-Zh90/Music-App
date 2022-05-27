@@ -110,7 +110,11 @@ const Player1 = ({ content, rigthAnswer, isArtistPhotoShown }: PlayerProps) => {
           <img src={urlImage} alt="artist" width="11.4rem" height="11.4px" />
         )}
         {/* <PlayBtn onClick={onClickHandler} isPlaying={isPlaying} /> */}
-        <div className={style.circle} onClick={onClickHandler}>
+        <div
+          className={style.circle}
+          onClick={onClickHandler}
+          data-testid="playBtn"
+        >
           {isPlaying ? (
             <FontAwesomeIcon icon={faPause} />
           ) : (
