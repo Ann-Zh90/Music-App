@@ -44,6 +44,7 @@ describe("StartPage", () => {
     );
     expect(screen.getByRole("button")).toBeDisabled();
   });
+
   it("Btn is active after user typing in input", async () => {
     render(
       <Provider store={store}>
@@ -55,7 +56,7 @@ describe("StartPage", () => {
     const input = screen.getByRole("textbox");
     userEvent.type(input, "Anna");
     await waitFor(() => expect(screen.getByRole("button")).not.toBeDisabled(), {
-      timeout: 5000,
+      timeout: 1000,
     });
   });
 });

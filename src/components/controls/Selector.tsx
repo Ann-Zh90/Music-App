@@ -41,7 +41,12 @@ const Selector = (props: SelectorProps) => {
     }
   };
   return (
-    <div className={selectorStyle} onClick={onClickHandler} id={props.id}>
+    <div
+      className={selectorStyle}
+      onClick={onClickHandler}
+      id={props.id}
+      data-testid="selector-item"
+    >
       <div className={style.icon}></div>
       <div>{props.children}</div>
     </div>
