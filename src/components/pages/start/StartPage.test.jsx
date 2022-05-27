@@ -7,7 +7,7 @@ import { Provider } from "react-redux";
 
 import { useAppDispatch, useAppSelector } from "../../../store/hooks";
 import { testUseSelector } from "../../../store/test-selector";
-import { BrowserRouter as Router } from "react-router-dom";
+import { MemoryRouter } from "react-router-dom";
 
 jest.mock("../../../store/hooks");
 const storeProps = {
@@ -37,9 +37,9 @@ describe("StartPage", () => {
   it("Btn disabled", () => {
     render(
       <Provider store={store}>
-        <Router>
+        <MemoryRouter>
           <StartPage {...storeProps} store={store} />
-        </Router>
+        </MemoryRouter>
       </Provider>
     );
     expect(screen.getByRole("button")).toBeDisabled();
@@ -48,9 +48,9 @@ describe("StartPage", () => {
   it("Btn is active after user typing in input", async () => {
     render(
       <Provider store={store}>
-        <Router>
+        <MemoryRouter>
           <StartPage {...storeProps} store={store} />
-        </Router>
+        </MemoryRouter>
       </Provider>
     );
     const input = screen.getByRole("textbox");

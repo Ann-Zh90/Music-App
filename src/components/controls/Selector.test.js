@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import { BrowserRouter as Router } from "react-router-dom";
+import { MemoryRouter } from "react-router-dom";
 import Selector from "./Selector";
 import { act } from "react-dom/test-utils";
 
@@ -10,7 +10,7 @@ describe("Selector tests", () => {
     const countAttemps = jest.fn();
     const rightAnswer = true;
     render(
-      <Router>
+      <MemoryRouter>
         <Selector
           rightAnswer={rightAnswer}
           onClick={onClick}
@@ -18,7 +18,7 @@ describe("Selector tests", () => {
         >
           Song
         </Selector>
-      </Router>
+      </MemoryRouter>
     );
 
     const selectorElem = screen.getByTestId("selector-item");
@@ -36,7 +36,7 @@ describe("Selector tests", () => {
     const rightAnswer = false;
     const rightAnswerIsFound = jest.fn();
     render(
-      <Router>
+      <MemoryRouter>
         <Selector
           rightAnswer={rightAnswer}
           onClick={onClick}
@@ -47,7 +47,7 @@ describe("Selector tests", () => {
         >
           Song
         </Selector>
-      </Router>
+      </MemoryRouter>
     );
 
     const selectorElem = screen.getByTestId("selector-item");
@@ -64,7 +64,7 @@ describe("Selector tests", () => {
     const rightAnswer = true;
     const rightAnswerIsFound = jest.fn();
     render(
-      <Router>
+      <MemoryRouter>
         <Selector
           rightAnswer={rightAnswer}
           onClick={onClick}
@@ -75,7 +75,7 @@ describe("Selector tests", () => {
         >
           Song
         </Selector>
-      </Router>
+      </MemoryRouter>
     );
 
     const selectorElem = screen.getByTestId("selector-item");
