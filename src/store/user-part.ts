@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-interface UserState {
+export interface UserState {
   userName: string;
   totalScore: number;
   musicData: Array<MusicGenre>;
