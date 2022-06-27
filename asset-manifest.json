@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/Music-App/static/css/main.c7a12723.css",
+    "main.js": "/Music-App/static/js/main.82afa47d.js",
+    "static/media/1.jpg": "/Music-App/static/media/1.d7fb38f385758f12c3f2.jpg",
+    "static/media/star.svg": "/Music-App/static/media/star.6efa395268ea8718428dcc76cee1db08.svg",
+    "static/media/crown.svg": "/Music-App/static/media/crown.7b9facfedfa01069e24cefd781818ad0.svg",
+    "static/media/Logo.svg": "/Music-App/static/media/Logo.e9319fbdee3d2e52ccd24f5abf311400.svg",
+    "static/media/spinner.svg": "/Music-App/static/media/spinner.23c09035ed46ae159405f297cd6fad44.svg",
+    "static/media/Incorrect.svg": "/Music-App/static/media/Incorrect.2f8261b02202d9f2dbb2.svg",
+    "index.html": "/Music-App/index.html",
+    "static/media/Union.svg": "/Music-App/static/media/Union.1a6a2d8bfc50d00e2a00c02991993b1f.svg",
+    "static/media/Correct.svg": "/Music-App/static/media/Correct.027a9fd69688be28a566.svg",
+    "main.c7a12723.css.map": "/Music-App/static/css/main.c7a12723.css.map",
+    "main.82afa47d.js.map": "/Music-App/static/js/main.82afa47d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c7a12723.css",
+    "static/js/main.82afa47d.js"
+  ]
+}
